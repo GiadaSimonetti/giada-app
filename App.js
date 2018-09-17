@@ -1,13 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import LoginScreen from './Screens/LoginScreen';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-      <Text style={styles.title}>This is my title</Text>
-        <Text>Hello!</Text>
-      </View>
+        <LoginScreen />
     );
   }
 }
@@ -23,8 +21,8 @@ const styles = StyleSheet.create({
       fontSize: 24,
       color: '#fff',
       fontWeight: '800',
-      paddingVertical: 5,
-      paddingHorizontal: 6,
+      // paddingVertical: 5,
+      // paddingHorizontal: 6,
 
   }
 });
