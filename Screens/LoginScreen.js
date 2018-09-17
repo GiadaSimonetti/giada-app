@@ -1,9 +1,16 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import Conditions from './Conditions';
+import TouchableLink from './TouchableLink';
+import TermsAndConditions from './TermsAndConditions';
 
 
 class LoginScreen extends React.Component {
+
+    constructor(props) {
+    super(props);
+    this.state = {showTerms: false};
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -24,7 +31,8 @@ class LoginScreen extends React.Component {
                         />
                     </View>
                 </View>
-                <Conditions />
+                < TouchableLink _toggleTerms={toggleTerms}/>
+                    {this.state.showTerms && <TermsAndConditions/>}
             </View>
         );
     }
@@ -33,6 +41,12 @@ class LoginScreen extends React.Component {
 const onPressLogin = () => {
     alert('Booooooooooom');
     // console.log('I am alive');
+}
+
+const toggleTerms =  () => {
+    this.setState(previousState => {
+        return { showTerms: !previousState.showTerms };
+    })
 }
 
 const styles = StyleSheet.create({

@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const Conditions = () => {
+const TouchableLink = (props) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={props._toggleTerms}>
                 <Text>text!!!!</Text>
             </TouchableOpacity>
         </View>
     )
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -20,4 +22,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Conditions;
+export default TouchableLink;
