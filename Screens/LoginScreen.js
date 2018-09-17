@@ -7,10 +7,16 @@ import TermsAndConditions from './TermsAndConditions';
 class LoginScreen extends React.Component {
 
     constructor(props) {
-    super(props);
-    this.state = {showTerms: false};
-    }
+        super(props);
+        this.state = {showTerms: false};
+        this.toggleTerms = this.toggleTerms.bind(this);
 
+    }
+    toggleTerms() {
+        this.setState(previousState => {
+            return { showTerms: !previousState.showTerms };
+        })
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -31,7 +37,7 @@ class LoginScreen extends React.Component {
                         />
                     </View>
                 </View>
-                < TouchableLink _toggleTerms={toggleTerms}/>
+                < TouchableLink _toggleTerms={this.toggleTerms} />
                     {this.state.showTerms && <TermsAndConditions/>}
             </View>
         );
@@ -43,11 +49,7 @@ const onPressLogin = () => {
     // console.log('I am alive');
 }
 
-const toggleTerms =  () => {
-    this.setState(previousState => {
-        return { showTerms: !previousState.showTerms };
-    })
-}
+
 
 const styles = StyleSheet.create({
   container: {
