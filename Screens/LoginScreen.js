@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-// import LoginScreen from './Screens/LoginScreen';
-// import { Constants } from 'expo';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+
 
  class LoginScreen extends React.Component {
   render() {
@@ -11,11 +10,25 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
               <Text style={styles.title}>Twitter!</Text>
               <Text style={styles.subtitle}>@giada </Text>
             </View>
-            <TextInput style={styles.input} />
-            <TextInput style={styles.input} />
+            <View style={styles.formBody}>
+            <Text style={styles.label}>Email</Text>
+            <TextInput style={styles.input} keyboardType='email-address'/>
+
+            <Text style={styles.label}>Password</Text>
+            <TextInput style={styles.input} secureTextEntry={true}/>
+            <Button
+              onPress={onPressLogin}
+              title="Login"
+            />
+            </View>
         </View>
     );
   }
+}
+
+const onPressLogin = () => {
+    alert('Booooooooooom');
+    // console.log('I am alive');
 }
 
 const styles = StyleSheet.create({
@@ -41,7 +54,15 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 10,
       margin: 20,
-  }
+      width: '90%',
+  },
+  label: {
+      width: '90%',
+  },
+  formBody: {
+      justifyContent: 'center',
+      marginTop: 10,
+  },
 });
 
   export default LoginScreen;
